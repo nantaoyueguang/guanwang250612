@@ -295,9 +295,9 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="satellite-communication">卫星通信系统</button></li>
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="self-tracking">自跟踪通信系统</button></li>
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="servo-turntable">伺服转台</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="antenna-systems" data-subcategory="satellite-communication">卫星通信系统</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="antenna-systems" data-subcategory="self-tracking">自跟踪通信系统</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="antenna-systems" data-subcategory="servo-turntable">伺服转台</button></li>
                             </ul>
                         </li>
                         <li>
@@ -307,8 +307,8 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="airborne-antenna">机载天线</button></li>
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="ground-antenna">地面天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="uav-antennas" data-subcategory="airborne-antenna">机载天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="uav-antennas" data-subcategory="ground-antenna">地面天线</button></li>
                             </ul>
                         </li>
                         <li>
@@ -318,9 +318,9 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="station-antenna">台站天线</button></li>
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="vehicle-antenna">车载天线</button></li>
-                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="portable-antenna">便携天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="hf-uhf-antennas" data-subcategory="station-antenna">台站天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="hf-uhf-antennas" data-subcategory="vehicle-antenna">车载天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-category="hf-uhf-antennas" data-subcategory="portable-antenna">便携天线</button></li>
                             </ul>
                         </li>
                         <li>
@@ -1100,132 +1100,52 @@
 
     <!-- JavaScript -->
     <script>
-        // 分类导航交互
+        // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
+            // 获取DOM元素
             const categoryBtns = document.querySelectorAll('.category-btn');
             const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
             const productCategories = document.querySelectorAll('.product-category');
+
+            // 初始化状态
             let currentCategory = null;
             let currentSubcategory = null;
 
-            // 检查URL中的锚点
-            const urlHash = window.location.hash;
+            // 尝试从sessionStorage恢复状态
+            const savedCategory = sessionStorage.getItem('currentCategory');
+            const savedSubcategory = sessionStorage.getItem('currentSubcategory');
 
-            if (urlHash) {
-                // 提取锚点名称（去掉#）
-                currentCategory = urlHash.substring(1);
-                // 确保该元素存在
-                if (document.getElementById(currentCategory)) {
-                    // 隐藏所有分类
-                    productCategories.forEach(cat => cat.classList.add('hidden'));
-                    // 显示锚点对应的分类
-                    document.getElementById(currentCategory).classList.remove('hidden');
-                    // 激活对应的按钮
-                    categoryBtns.forEach(btn => {
-                        if (btn.getAttribute('data-category') === currentCategory) {
-                            btn.classList.add('nav-active');
-                            // 展开对应的子菜单
-                            const submenu = btn.nextElementSibling;
-                            if (submenu && submenu.classList.contains('category-submenu')) {
-                                submenu.classList.remove('hidden');
-                                const icon = btn.querySelector('i');
-                                if (icon) {
-                                    icon.classList.remove('fa-chevron-down');
-                                    icon.classList.add('fa-chevron-up');
-                                }
-                            }
-                        } else {
-                            btn.classList.remove('nav-active');
-                        }
-                    });
-                    // 显示当前分类下的所有产品卡片
-                    showAllProductsInCategory(currentCategory);
-                    // 滚动到锚点位置
-                    setTimeout(() => {
-                        const element = document.getElementById(currentCategory);
-                        if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }, 100);
+            // 初始化显示
+            if (savedCategory) {
+                showCategory(savedCategory);
+                currentCategory = savedCategory;
+                if (savedSubcategory) {
+                    filterBySubcategory(savedSubcategory);
+                    currentSubcategory = savedSubcategory;
+                }
+            } else {
+                // 默认显示第一个分类
+                const firstCategory = categoryBtns[0].dataset.category;
+                showCategory(firstCategory);
+                currentCategory = firstCategory;
+                // 展开第一个分类的子菜单
+                const firstSubmenu = categoryBtns[0].nextElementSibling;
+                if (firstSubmenu && firstSubmenu.classList.contains('category-submenu')) {
+                    firstSubmenu.classList.remove('hidden');
+                    categoryBtns[0].querySelector('i').classList.add('rotate-180');
                 }
             }
 
-            // 如果没有锚点或锚点无效，则从sessionStorage恢复上次选择的分类和子分类
-            if (!currentCategory) {
-                const savedCategory = sessionStorage.getItem('selectedCategory');
-                const savedSubcategory = sessionStorage.getItem('selectedSubcategory');
-                if (savedCategory) {
-                    // 隐藏所有分类
-                    productCategories.forEach(cat => cat.classList.add('hidden'));
-                    // 显示保存的分类
-                    document.getElementById(savedCategory).classList.remove('hidden');
-                    currentCategory = savedCategory;
-                    // 激活对应的按钮
-                    categoryBtns.forEach(btn => {
-                        if (btn.getAttribute('data-category') === savedCategory) {
-                            btn.classList.add('nav-active');
-                            // 展开对应的子菜单
-                            const submenu = btn.nextElementSibling;
-                            if (submenu && submenu.classList.contains('category-submenu')) {
-                                submenu.classList.remove('hidden');
-                                const icon = btn.querySelector('i');
-                                if (icon) {
-                                    icon.classList.remove('fa-chevron-down');
-                                    icon.classList.add('fa-chevron-up');
-                                }
-                            }
-                        } else {
-                            btn.classList.remove('nav-active');
-                        }
-                    });
-
-                    // 如果有保存的子分类，则激活并过滤
-                    if (savedSubcategory) {
-                        currentSubcategory = savedSubcategory;
-                        subcategoryBtns.forEach(btn => {
-                            if (btn.getAttribute('data-subcategory') === savedSubcategory) {
-                                btn.classList.add('subnav-active');
-                            }
-                        });
-                        filterProductsBySubcategory(currentCategory, currentSubcategory);
-                    } else {
-                        // 显示所有产品卡片
-                        showAllProductsInCategory(currentCategory);
-                    }
-                } else {
-                    // 默认展开第一个分类的子菜单
-                    const firstSubmenu = document.querySelector('.category-submenu');
-                    if (firstSubmenu) {
-                        firstSubmenu.classList.remove('hidden');
-                        const firstIcon = document.querySelector('.category-btn i');
-                        if (firstIcon) {
-                            firstIcon.classList.remove('fa-chevron-down');
-                            firstIcon.classList.add('fa-chevron-up');
-                        }
-                    }
-                }
-            }
-
-            // 一级分类按钮点击事件
+            // 主分类按钮点击事件
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // 移除所有激活状态
-                    categoryBtns.forEach(b => b.classList.remove('nav-active'));
-                    subcategoryBtns.forEach(b => b.classList.remove('subnav-active'));
-                    productCategories.forEach(cat => cat.classList.add('hidden'));
-
-                    // 设置当前激活状态
-                    this.classList.add('nav-active');
-                    currentCategory = this.getAttribute('data-category');
+                    const category = this.dataset.category;
+                    showCategory(category);
+                    currentCategory = category;
                     currentSubcategory = null;
-                    document.getElementById(currentCategory).classList.remove('hidden');
-
-                    // 显示当前分类下的所有产品卡片
-                    showAllProductsInCategory(currentCategory);
-
-                    // 保存分类状态到sessionStorage
-                    sessionStorage.setItem('selectedCategory', currentCategory);
-                    sessionStorage.removeItem('selectedSubcategory');
+                    // 保存状态到sessionStorage
+                    sessionStorage.setItem('currentCategory', category);
+                    sessionStorage.removeItem('currentSubcategory');
 
                     // 切换子菜单显示
                     const submenu = this.nextElementSibling;
@@ -1233,57 +1153,103 @@
                         submenu.classList.toggle('hidden');
                         const icon = this.querySelector('i');
                         if (icon) {
-                            icon.classList.toggle('fa-chevron-down');
-                            icon.classList.toggle('fa-chevron-up');
+                            icon.classList.toggle('rotate-180');
                         }
                     }
                 });
             });
 
-            // 二级分类按钮点击事件
+            // 次级分类按钮点击事件
             subcategoryBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // 移除所有二级分类激活状态
-                    subcategoryBtns.forEach(b => b.classList.remove('subnav-active'));
+                    const category = this.dataset.category;
+                    const subcategory = this.dataset.subcategory;
 
-                    // 设置当前激活状态
-                    this.classList.add('subnav-active');
-                    currentSubcategory = this.getAttribute('data-subcategory');
+                    // 如果当前分类不是按钮所属的分类，则切换分类
+                    if (currentCategory !== category) {
+                        showCategory(category);
+                        currentCategory = category;
+                        // 保存分类状态
+                        sessionStorage.setItem('currentCategory', category);
 
-                    // 过滤显示对应的产品卡片
-                    filterProductsBySubcategory(currentCategory, currentSubcategory);
+                        // 确保对应的子菜单已展开
+                        const categoryBtn = document.querySelector(`.category-btn[data-category="${category}"]`);
+                        if (categoryBtn) {
+                            const submenu = categoryBtn.nextElementSibling;
+                            if (submenu && submenu.classList.contains('category-submenu')) {
+                                submenu.classList.remove('hidden');
+                                const icon = categoryBtn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.add('rotate-180');
+                                }
+                            }
+                        }
+                    }
 
-                    // 保存二级分类状态到sessionStorage
-                    sessionStorage.setItem('selectedSubcategory', currentSubcategory);
+                    // 过滤产品
+                    filterBySubcategory(subcategory);
+                    currentSubcategory = subcategory;
+                    // 保存子分类状态
+                    sessionStorage.setItem('currentSubcategory', subcategory);
                 });
             });
 
-            // 显示当前分类下的所有产品卡片
-            function showAllProductsInCategory(categoryId) {
-                const categoryElement = document.getElementById(categoryId);
-                if (categoryElement) {
-                    const productCards = categoryElement.querySelectorAll('.group');
-                    productCards.forEach(card => {
-                        card.classList.remove('hidden');
-                    });
+            // 显示指定分类的产品
+            function showCategory(categoryId) {
+                // 移除所有分类按钮的激活状态
+                categoryBtns.forEach(btn => {
+                    btn.classList.remove('nav-active');
+                });
+
+                // 添加当前分类按钮的激活状态
+                const activeBtn = document.querySelector(`.category-btn[data-category="${categoryId}"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('nav-active');
+                }
+
+                // 隐藏所有产品分类
+                productCategories.forEach(cat => {
+                    cat.classList.add('hidden');
+                });
+
+                // 显示当前产品分类
+                const activeCategory = document.getElementById(categoryId);
+                if (activeCategory) {
+                    activeCategory.classList.remove('hidden');
                 }
             }
 
-            // 根据二级分类过滤产品卡片
-            function filterProductsBySubcategory(categoryId, subcategory) {
-                const categoryElement = document.getElementById(categoryId);
-                if (categoryElement) {
-                    const productCards = categoryElement.querySelectorAll('.group');
-                    productCards.forEach(card => {
-                        if (card.getAttribute('data-subcategory') === subcategory) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
+            // 根据子分类过滤产品
+            function filterBySubcategory(subcategoryId) {
+                // 移除所有子分类按钮的激活状态
+                subcategoryBtns.forEach(btn => {
+                    btn.classList.remove('subnav-active');
+                });
+
+                // 添加当前子分类按钮的激活状态
+                const activeBtn = document.querySelector(`.subcategory-btn[data-subcategory="${subcategoryId}"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('subnav-active');
                 }
+
+                // 获取当前分类下的所有产品卡片
+                const currentCategoryEl = document.getElementById(currentCategory);
+                if (!currentCategoryEl) return;
+
+                const productCards = currentCategoryEl.querySelectorAll('.product-category > div > div');
+
+                // 显示或隐藏产品卡片
+                productCards.forEach(card => {
+                    if (card.dataset.subcategory === subcategoryId) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
             }
         });
     </script>
+</body>
+</html>"${category}"]`);
 </body>
 </html>

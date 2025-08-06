@@ -80,6 +80,20 @@
                 border-left-width: 4px;
                 border-left-color: #165DFF;
             }
+            .subcategory-btn {
+                transition-property: color, background-color;
+                transition-duration: 200ms;
+                transition-timing-function: ease-in-out;
+            }
+            .subcategory-btn:hover {
+                color: #165DFF;
+                background-color: rgba(22, 93, 255, 0.05);
+            }
+            .subnav-active {
+                color: #165DFF;
+                font-weight: 500;
+                background-color: rgba(22, 93, 255, 0.05);
+            }
         }
     </style>
 </head>
@@ -103,11 +117,11 @@
                         <a href="product-center.html" class="font-medium text-dark hover:text-primary transition-colors flex items-center">产品中心
                             <!-- <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i> -->
                         </a>
-                        <!-- 产品中心下拉菜单 -->
+                         <!-- 产品中心下拉菜单 
                         <div class="absolute left-[-100px] top-full top-full mt-2 w-auto bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-50  transform origin-top scale-95 group-hover:scale-100">
                             <div class="px-0 py-2">
                                 <div class="flex flex-nowrap justify-start gap-4 w-max pl-4 pr-4">
-                                    <!-- 天线集成系统 -->
+                                     天线集成系统 
                                     <div class="flex flex-[0_0_auto] pl-5 flex-col space-y-1">
                                         <h3 class="font-bold text-sm text-primary mb-0.5">天线集成系统</h3>
                                         <ul class="space-y-1">
@@ -116,7 +130,7 @@
                                             <li><a href="products/antenna-systems/ground-platform-antenna.html" class="text-gray-600 hover:text-primary transition-colors block py-0.5 hover:bg-gray-50 text-xs">伺服转台</a></li>
                                         </ul>
                                     </div>
-                                    <!-- 无人机天线 -->
+                                     无人机天线 
                                     <div class="flex flex-[0_0_auto] pl-5 flex-col space-y-1">
                                         <h3 class="font-bold text-sm text-primary mb-0.5">无人机天线</h3>
                                         <ul class="space-y-1">
@@ -124,7 +138,7 @@
                                             <li><a href="products/antenna-systems/high-gain-small-antenna.html" class="text-gray-600 hover:text-primary transition-colors block py-0.5 hover:bg-gray-50 text-xs">地面天线</a></li>
                                         </ul>
                                     </div>
-                                    <!-- 短波/超短波天线 -->
+                                     短波/超短波天线 
                                     <div class="flex flex-[0_0_auto] pl-5 flex-col space-y-1">
                                         <h3 class="font-bold text-sm text-primary mb-0.5">短波/超短波天线</h3>
                                         <ul class="space-y-1">
@@ -133,7 +147,7 @@
                                             <li><a href="fixed-station-antenna.html" class="text-gray-600 hover:text-primary transition-colors block py-0.5 hover:bg-gray-50 text-xs">便携天线</a></li>
                                         </ul>
                                     </div>
-                                    <!-- 雷达产品 -->
+                                     雷达产品 
                                     <div class="flex flex-[0_0_auto] pl-5 flex-col space-y-1">
                                         <h3 class="font-bold text-sm text-primary mb-0.5">雷达产品</h3>
                                         <ul class="space-y-1">
@@ -142,7 +156,7 @@
                                             <li><a href="guidance-radar-subsystem.html" class="text-gray-600 hover:text-primary transition-colors block py-0.5 hover:bg-gray-50 text-xs">导引雷达子系统</a></li>
                                         </ul>
                                     </div>
-                                    <!-- 光电产品 -->
+                                     光电产品 
                                     <div class="flex flex-[0_0_auto] pl-5 flex-col space-y-1">
                                         <h3 class="font-bold text-sm text-primary mb-0.5">光电产品</h3>
                                         <ul class="space-y-1">
@@ -153,7 +167,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <a href="#portfolio" class="font-medium text-dark hover:text-primary transition-colors">案例</a>
                     <a href="#team" class="font-medium text-dark hover:text-primary transition-colors">团队</a>
@@ -281,9 +295,9 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><a href="products/antenna-systems/air-platform-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">卫星通信系统</a></li>
-                                <li><a href="products/antenna-systems/ship-platform-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">自跟踪通信系统</a></li>
-                                <li><a href="products/antenna-systems/ground-platform-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">伺服转台</a></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="satellite-communication">卫星通信系统</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="self-tracking">自跟踪通信系统</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="servo-turntable">伺服转台</button></li>
                             </ul>
                         </li>
                         <li>
@@ -293,8 +307,8 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><a href="products/uav-antennas/portable-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">机载天线</a></li>
-                                <li><a href="products/uav-antennas/multi-band-airborne-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">地面天线</a></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="airborne-antenna">机载天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="ground-antenna">地面天线</button></li>
                             </ul>
                         </li>
                         <li>
@@ -304,9 +318,9 @@
                                 <i class="fa fa-chevron-down text-xs text-gray-400"></i>
                             </button>
                             <ul class="category-submenu pl-6 py-2 bg-gray-50 hidden">
-                                <li><a href="products/hf-uhf-antennas/hf-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">台站天线</a></li>
-                                <li><a href="products/hf-uhf-antennas/uhf-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">车载天线</a></li>
-                                <li><a href="products/hf-uhf-antennas/fixed-station-antenna.html" class="block py-2 text-sm text-gray-600 hover:text-primary">便携天线</a></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="station-antenna">台站天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="vehicle-antenna">车载天线</button></li>
+                                <li><button class="subcategory-btn w-full text-left py-2 text-sm text-gray-600 hover:text-primary" data-subcategory="portable-antenna">便携天线</button></li>
                             </ul>
                         </li>
                         <li>
@@ -343,7 +357,7 @@
                 <div class="product-category" id="antenna-systems">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- AS/KU600型便携式语音通信设备 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="satellite-communication">
                             <a href="products/antenna-systems/as-ku600.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc206.png" alt="AS/KU600型便携式语音通信设备" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-90 group-hover:scale-100">
@@ -356,7 +370,7 @@
                         </div>
 
                         <!-- 无人艇天线系统 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="self-tracking">
                             <a href="products/antenna-systems/unmanned-boat-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc540.png" alt="无人艇天线系统" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-90 group-hover:scale-100">
@@ -369,7 +383,7 @@
                         </div>
 
                         <!-- 地面伺服天线系统 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products/antenna-systems/ground-servo-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc857.png" alt="地面伺服天线系统" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -382,7 +396,7 @@
                         </div>
 
                         <!-- 机载伺服天线系统 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products/antenna-systems/airborne-servo-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc308.png" alt="机载伺服天线系统" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -395,7 +409,7 @@
                         </div>
 
                         <!-- AS/L1550便携伺服转台 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products/antenna-systems/as-l1550-portable-servo.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc407.png" alt="AS/L1550便携伺服转台" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -408,7 +422,7 @@
                         </div>
 
                         <!-- AS/L便携伺服转台 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products/antenna-systems/as-l-portable-servo.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc858.png" alt="AS/L便携伺服转台" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -421,7 +435,7 @@
                         </div>
 
                         <!-- 便携伺服子系统 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products/antenna-systems/multi-band-airborne-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc859.png" alt="便携伺服子系统" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-90 group-hover:scale-100">
@@ -434,7 +448,7 @@
                         </div>
 
                         <!-- 	AS/CT100/500/1000雷达伺服转台 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="servo-turntable">
                             <a href="products\antenna-systems\as-ct100-500-1000.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/jc860c.png" alt="AS/CT100/500/1000雷达伺服转台" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -454,7 +468,7 @@
                     <!-- 无人机天线产品卡片 -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- 亚音速机载天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="airborne-antenna">
                             <a href="products/uav-antennas/portable-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj01.png" alt="亚音速机载天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -467,7 +481,7 @@
                         </div>
 
                         <!-- 高增益机载天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="airborne-antenna">
                             <a href="products/uav-antennas/multi-band-airborne-antenna.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj02.png" alt="高增益机载天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -491,7 +505,7 @@
                             </a>
                         </div> -->
                         <!-- AS/S240型短背射天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="ground-antenna">
                             <a href="products/uav-antennas/04.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj04.png" alt="AS/S240型短背射天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -503,7 +517,7 @@
                             </a>
                         </div>
                         <!-- AS/U300A型宽带双锥天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="ground-antenna">
                             <a href="products/uav-antennas/05.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj05.png" alt="AS/U300A型宽带双锥天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -515,7 +529,7 @@
                             </a>
                         </div>
                        <!-- L波段单脉冲天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="ground-antenna">
                             <a href="products/uav-antennas/06.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj06.png" alt="L波段单脉冲天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -527,7 +541,7 @@
                             </a>
                         </div>
                         <!-- L波段定向/单脉冲天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="ground-antenna">
                             <a href="products/uav-antennas/07.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/wrj07.png" alt="L波段定向/单脉冲天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -560,7 +574,7 @@
                 <div class="product-category hidden" id="hf-uhf-antennas">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- 固定站短波宽带鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/01.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db01.png" alt="AS/H120型固定站短波宽带鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -573,7 +587,7 @@
                         </div>
 
                         <!-- 水平硬振子短波对数周期天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/02.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db02.png" alt="水平硬振子短波对数周期天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -586,7 +600,7 @@
                         </div>
 
                         <!-- 短波多馈多模宽带天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/03.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db03.png" alt="短波多馈多模宽带天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -599,7 +613,7 @@
                         </div>
 
                         <!-- 短波扇形宽带天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/04.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db04.png" alt="短波扇形宽带天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -612,7 +626,7 @@
                         </div>
 
                         <!-- 短波半菱形宽带天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/05.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db05.png" alt="短波半菱形宽带天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -625,7 +639,7 @@
                         </div>
 
                         <!-- 短波伞锥形宽带天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="station-antenna">
                             <a href="products/hf-uhf-antennas/06.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db06.png" alt="短波伞锥形宽带天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -637,7 +651,7 @@
                             </a>
                         </div>
                         <!-- AS/BH短波2.4m鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="portable-antenna">
                             <a href="products/hf-uhf-antennas/07.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db07.png" alt="AS/BH短波2.4m鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -649,7 +663,7 @@
                             </a>
                         </div>
                         <!-- 超短波宽带鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="portable-antenna">
                             <a href="products/hf-uhf-antennas/08.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db08.png" alt="超短波宽带鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -661,7 +675,7 @@
                             </a>
                         </div>
                         <!-- AS/H630型车载短波对数周期天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="vehicle-antenna">
                             <a href="products/hf-uhf-antennas/09.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db09.png" alt="AS/H630型车载短波对数周期天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -673,7 +687,7 @@
                             </a>
                         </div>
                         <!-- 车载超短波宽带鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="vehicle-antenna">
                             <a href="products/hf-uhf-antennas/10.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db10.png" alt="车载超短波宽带鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -685,7 +699,7 @@
                             </a>
                         </div>
                         <!-- 车载超短波宽带鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="vehicle-antenna">
                             <a href="products/hf-uhf-antennas/11.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db11.png" alt="车载超短波宽带鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -697,7 +711,7 @@
                             </a>
                         </div>
                         <!-- 车载短波螺旋/宽带鞭天线 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-subcategory="vehicle-antenna">
                             <a href="products/hf-uhf-antennas/12.html">
                                 <div class="relative pb-[75%] overflow-hidden">
                                     <img src="images/db12.png" alt="车载短波螺旋/宽带鞭天线" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -1089,61 +1103,129 @@
         // 分类导航交互
         document.addEventListener('DOMContentLoaded', function() {
             const categoryBtns = document.querySelectorAll('.category-btn');
+            const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
             const productCategories = document.querySelectorAll('.product-category');
+            let currentCategory = null;
+            let currentSubcategory = null;
 
-            // 从sessionStorage恢复上次选择的分类
-            const savedCategory = sessionStorage.getItem('selectedCategory');
+            // 检查URL中的锚点
+            const urlHash = window.location.hash;
 
-            // 初始化分类显示
-            if (savedCategory) {
-                // 隐藏所有分类
-                productCategories.forEach(cat => cat.classList.add('hidden'));
-                // 显示保存的分类
-                document.getElementById(savedCategory).classList.remove('hidden');
-                // 激活对应的按钮
-                categoryBtns.forEach(btn => {
-                    if (btn.getAttribute('data-category') === savedCategory) {
-                        btn.classList.add('nav-active');
-                        // 展开对应的子菜单
-                        const submenu = btn.nextElementSibling;
-                        if (submenu && submenu.classList.contains('category-submenu')) {
-                            submenu.classList.remove('hidden');
-                            const icon = btn.querySelector('i');
-                            if (icon) {
-                                icon.classList.remove('fa-chevron-down');
-                                icon.classList.add('fa-chevron-up');
+            if (urlHash) {
+                // 提取锚点名称（去掉#）
+                currentCategory = urlHash.substring(1);
+                // 确保该元素存在
+                if (document.getElementById(currentCategory)) {
+                    // 隐藏所有分类
+                    productCategories.forEach(cat => cat.classList.add('hidden'));
+                    // 显示锚点对应的分类
+                    document.getElementById(currentCategory).classList.remove('hidden');
+                    // 激活对应的按钮
+                    categoryBtns.forEach(btn => {
+                        if (btn.getAttribute('data-category') === currentCategory) {
+                            btn.classList.add('nav-active');
+                            // 展开对应的子菜单
+                            const submenu = btn.nextElementSibling;
+                            if (submenu && submenu.classList.contains('category-submenu')) {
+                                submenu.classList.remove('hidden');
+                                const icon = btn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                }
                             }
+                        } else {
+                            btn.classList.remove('nav-active');
                         }
+                    });
+                    // 显示当前分类下的所有产品卡片
+                    showAllProductsInCategory(currentCategory);
+                    // 滚动到锚点位置
+                    setTimeout(() => {
+                        const element = document.getElementById(currentCategory);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+            }
+
+            // 如果没有锚点或锚点无效，则从sessionStorage恢复上次选择的分类和子分类
+            if (!currentCategory) {
+                const savedCategory = sessionStorage.getItem('selectedCategory');
+                const savedSubcategory = sessionStorage.getItem('selectedSubcategory');
+                if (savedCategory) {
+                    // 隐藏所有分类
+                    productCategories.forEach(cat => cat.classList.add('hidden'));
+                    // 显示保存的分类
+                    document.getElementById(savedCategory).classList.remove('hidden');
+                    currentCategory = savedCategory;
+                    // 激活对应的按钮
+                    categoryBtns.forEach(btn => {
+                        if (btn.getAttribute('data-category') === savedCategory) {
+                            btn.classList.add('nav-active');
+                            // 展开对应的子菜单
+                            const submenu = btn.nextElementSibling;
+                            if (submenu && submenu.classList.contains('category-submenu')) {
+                                submenu.classList.remove('hidden');
+                                const icon = btn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                }
+                            }
+                        } else {
+                            btn.classList.remove('nav-active');
+                        }
+                    });
+
+                    // 如果有保存的子分类，则激活并过滤
+                    if (savedSubcategory) {
+                        currentSubcategory = savedSubcategory;
+                        subcategoryBtns.forEach(btn => {
+                            if (btn.getAttribute('data-subcategory') === savedSubcategory) {
+                                btn.classList.add('subnav-active');
+                            }
+                        });
+                        filterProductsBySubcategory(currentCategory, currentSubcategory);
                     } else {
-                        btn.classList.remove('nav-active');
+                        // 显示所有产品卡片
+                        showAllProductsInCategory(currentCategory);
                     }
-                });
-            } else {
-                // 默认展开第一个分类的子菜单
-                const firstSubmenu = document.querySelector('.category-submenu');
-                if (firstSubmenu) {
-                    firstSubmenu.classList.remove('hidden');
-                    const firstIcon = document.querySelector('.category-btn i');
-                    if (firstIcon) {
-                        firstIcon.classList.remove('fa-chevron-down');
-                        firstIcon.classList.add('fa-chevron-up');
+                } else {
+                    // 默认展开第一个分类的子菜单
+                    const firstSubmenu = document.querySelector('.category-submenu');
+                    if (firstSubmenu) {
+                        firstSubmenu.classList.remove('hidden');
+                        const firstIcon = document.querySelector('.category-btn i');
+                        if (firstIcon) {
+                            firstIcon.classList.remove('fa-chevron-down');
+                            firstIcon.classList.add('fa-chevron-up');
+                        }
                     }
                 }
             }
 
+            // 一级分类按钮点击事件
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     // 移除所有激活状态
                     categoryBtns.forEach(b => b.classList.remove('nav-active'));
+                    subcategoryBtns.forEach(b => b.classList.remove('subnav-active'));
                     productCategories.forEach(cat => cat.classList.add('hidden'));
 
                     // 设置当前激活状态
                     this.classList.add('nav-active');
-                    const categoryId = this.getAttribute('data-category');
-                    document.getElementById(categoryId).classList.remove('hidden');
+                    currentCategory = this.getAttribute('data-category');
+                    currentSubcategory = null;
+                    document.getElementById(currentCategory).classList.remove('hidden');
+
+                    // 显示当前分类下的所有产品卡片
+                    showAllProductsInCategory(currentCategory);
 
                     // 保存分类状态到sessionStorage
-                    sessionStorage.setItem('selectedCategory', categoryId);
+                    sessionStorage.setItem('selectedCategory', currentCategory);
+                    sessionStorage.removeItem('selectedSubcategory');
 
                     // 切换子菜单显示
                     const submenu = this.nextElementSibling;
@@ -1157,6 +1239,50 @@
                     }
                 });
             });
+
+            // 二级分类按钮点击事件
+            subcategoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有二级分类激活状态
+                    subcategoryBtns.forEach(b => b.classList.remove('subnav-active'));
+
+                    // 设置当前激活状态
+                    this.classList.add('subnav-active');
+                    currentSubcategory = this.getAttribute('data-subcategory');
+
+                    // 过滤显示对应的产品卡片
+                    filterProductsBySubcategory(currentCategory, currentSubcategory);
+
+                    // 保存二级分类状态到sessionStorage
+                    sessionStorage.setItem('selectedSubcategory', currentSubcategory);
+                });
+            });
+
+            // 显示当前分类下的所有产品卡片
+            function showAllProductsInCategory(categoryId) {
+                const categoryElement = document.getElementById(categoryId);
+                if (categoryElement) {
+                    const productCards = categoryElement.querySelectorAll('.group');
+                    productCards.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
+                }
+            }
+
+            // 根据二级分类过滤产品卡片
+            function filterProductsBySubcategory(categoryId, subcategory) {
+                const categoryElement = document.getElementById(categoryId);
+                if (categoryElement) {
+                    const productCards = categoryElement.querySelectorAll('.group');
+                    productCards.forEach(card => {
+                        if (card.getAttribute('data-subcategory') === subcategory) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                }
+            }
         });
     </script>
 </body>

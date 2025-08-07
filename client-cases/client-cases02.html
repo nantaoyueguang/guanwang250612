@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>某天线场改造项目 - 昂石通讯官网</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../my-favicon/favicon.ico" />
+    <!-- 苹果设备支持 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Asmct" />
+    <!-- Web应用清单 -->
+    <link rel="manifest" href="../my-favicon/site.webmanifest" />
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CBCB 100%);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            :root {
+                --header-height: 4rem; /* 对应h-16 */
+            }
+            @media (min-width: 768px) {
+                :root {
+                    --header-height: 5rem; /* 对应md:h-20 */
+                }
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-dark antialiased" style="padding-top: var(--header-height);">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/100 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center">
+                    <img src="../images/logo.1.png" alt="公司Logo" class="h-6 md:h-7">
+                </a>
+
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="font-medium text-dark hover:text-primary transition-colors">首页</a>
+                    <a href="../index.html#about" class="font-medium text-dark hover:text-primary transition-colors">关于我们</a>
+                    <div class="relative group">
+                        <a href="../product-center.html" class="font-medium text-dark hover:text-primary transition-colors flex items-center">产品中心</a>
+                    </div>
+                    <a href="../client-cases.html" class="font-medium text-dark hover:text-primary transition-colors">客户案例</a>
+                    <a href="#services" class="font-medium text-dark hover:text-primary transition-colors">客户服务</a>
+                    <a href="#contact" class="font-medium text-dark hover:text-primary transition-colors">联系我们</a>
+                </nav>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="../index.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">首页</a>
+                <a href="../index.html#about" class="block font-medium text-dark hover:text-primary transition-colors py-2">关于我们</a>
+                <a href="../product-center.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">产品中心</a>
+                <a href="../client-cases.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">客户案例</a>
+                <a href="#services" class="block font-medium text-dark hover:text-primary transition-colors py-2">客户服务</a>
+                <a href="#contact" class="block font-medium text-dark hover:text-primary transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 案例详情 -->
+        <section class="py-12">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center">某部队短波宽带天线场地建设项目</h1>
+                <div class="mb-8 text-center text-gray-500">
+                    <span class="inline-flex items-center mr-4"><i class="fa fa-calendar-o mr-2"></i> 2014年01月22日</span>
+                    <span class="inline-flex items-center"><i class="fa fa-tags mr-2"></i> 客户案例, 场地建设</span>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-gray-600 mb-4">
+                        项目概述
+                    </blockquote>
+                    <p class="mb-4 text-gray-700 leading-relaxed "style="text-indent: 2em;">
+                        2014年1月我公司工程技术人员承担某部队短波天线场地建设任务。为该部队承建短波扇形天线、短波笼形天线、短波三线天线，共计10余套。所有天线均一次性通过验收，得到了部队领导的高度认可和好评。
+                    </p>
+                </div>    
+                    
+
+                <div class="mb-8 overflow-hidden rounded-xl">
+                    <img src="../images/al306.png" alt="某天线场改造项目" class="w-full max-w-3xl mx-auto h-auto object-cover transition-transform duration-700">
+                </div>
+                <div class="mb-8 overflow-hidden rounded-xl">
+                    <img src="../images/al306-1.png" alt="某天线场改造项目" class="w-full max-w-3xl mx-auto h-auto object-cover transition-transform duration-700">
+                </div>
+
+                <!-- <div class="prose prose-lg max-w-none">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">项目概述</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                        某天线场改造项目是为满足客户对通信系统升级的需求，对现有天线场进行全面改造和优化。项目旨在提升通信质量、扩大覆盖范围并增强系统稳定性。
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 text-primary">项目挑战</h2>
+                    <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-2">
+                        <li>现有天线设备老化，性能下降</li>
+                        <li>通信覆盖范围不足，存在盲区</li>
+                        <li>系统兼容性问题，需要与现有设备无缝对接</li>
+                        <li>施工周期短，任务重</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mb-4 text-primary">解决方案</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                        我公司提供了一套完整的天线场改造方案，包括：
+                    </p>
+                    <ol class="list-decimal pl-5 mb-4 text-gray-700 space-y-2">
+                        <li>对现有天线设备进行全面评估和检测</li>
+                        <li>设计并安装高性能无人机通信系统</li>
+                        <li>优化天线布局，扩大通信覆盖范围</li>
+                        <li>升级通信控制系统，提升系统稳定性和兼容性</li>
+                    </ol>
+
+                    <h2 class="text-2xl font-bold mb-4 text-primary">项目成果</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                        项目成功完成后，客户天线场的通信能力得到显著提升：
+                    </p>
+                    <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-2">
+                        <li>实现长距离、高带宽的数据传输</li>
+                        <li>通信覆盖范围扩大30%</li>
+                        <li>系统稳定性提升50%</li>
+                        <li>设备能耗降低20%</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mb-4 text-primary">客户反馈</h2>
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-gray-600 mb-4">
+                        "昂石通讯提供的天线场改造方案完全满足了我们的需求，通信质量和覆盖范围得到了显著提升。项目团队专业高效，按时完成了改造任务，值得信赖。"
+                        <footer class="text-right font-medium not-italic mt-2">— 客户技术总监</footer>
+                    </blockquote>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <a href="../index.html" class="flex items-center">
+                            <img src="../images/logo2.png" alt="公司Logo" class="h-6 md:h-7">
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-tight">
+                        我们致力于为客户提供高质量的通信解决方案，帮助企业实现数字化转型，提升核心竞争力。
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="../index.html#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">服务</a></li>
+                        <li><a href="../client-cases.html" class="text-gray-400 hover:text-white transition-colors">客户案例</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition-colors">团队</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">产品中心</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">天线集成系统</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">无人机天线</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">短波/超短波天线</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">雷达产品</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">光电产品</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系方式</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-primary mt-1"></i>
+                            <span class="text-gray-400">北京市大兴区北兴路东段2号院</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-phone text-primary mt-1"></i>
+                            <span class="text-gray-400">(8610)67993545</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-envelope text-primary mt-1"></i>
+                            <span class="text-gray-400">asmct@asmct.com</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-clock-o text-primary mt-1"></i>
+                            <span class="text-gray-400">周一至周五: 8:30 - 17:30</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-3 pt-2 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">版权所有 © 昂石通讯技术（北京）有限公司.   京ICP备10200826号-1  京公网安备11011502006838号</p>
+                <div class="flex gap-6"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('bg-white/100');
+                navbar.classList.add('bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/100');
+                navbar.classList.remove('bg-white');
+            }
+        });
+    </script>
+</body>
+</html>

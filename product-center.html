@@ -111,7 +111,7 @@
                 <!-- 桌面导航 -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="font-medium text-dark hover:text-primary transition-colors">首页</a>
-                    <a href="#about" class="font-medium text-dark hover:text-primary transition-colors">关于我们</a>
+                    <a href="index.html#about" class="font-medium text-dark hover:text-primary transition-colors">关于我们</a>
                     <!-- <a href="#services" class="font-medium text-dark hover:text-primary transition-colors">服务</a> -->
                     <div class="relative group">
                         <a href="product-center.html" class="font-medium text-dark hover:text-primary transition-colors flex items-center">产品中心
@@ -170,7 +170,7 @@
                         </div> -->
                     </div>
                     <a href="client-cases.html" class="font-medium text-dark hover:text-primary transition-colors">客户案例</a>
-                    <a href="#team" class="font-medium text-dark hover:text-primary transition-colors">团队</a>
+                    <!-- <a href="#team" class="font-medium text-dark hover:text-primary transition-colors">团队</a> -->
                     <a href="#services" class="font-medium text-dark hover:text-primary transition-colors">客户服务</a>
                     <a href="#contact" class="font-medium text-dark hover:text-primary transition-colors">联系我们</a>
                 </nav>
@@ -235,7 +235,7 @@
                     </div>
                 </div>
                 <a href="#portfolio" class="block font-medium text-dark hover:text-primary transition-colors py-2">客户案例</a>
-                <a href="#team" class="block font-medium text-dark hover:text-primary transition-colors py-2">团队</a>
+                <!-- <a href="#team" class="block font-medium text-dark hover:text-primary transition-colors py-2">团队</a> -->
                 <a href="#contact" class="block font-medium text-dark hover:text-primary transition-colors py-2">联系我们</a>
                 <a href="#contact" class="block bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-all text-center shadow-md">
                     咨询服务
@@ -1073,7 +1073,7 @@
                         <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">服务</a></li>
-                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">案例</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">客户案例</a></li>
                         <li><a href="#team" class="text-gray-400 hover:text-white transition-colors">团队</a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
                     </ul>
@@ -1243,6 +1243,12 @@
                 const activeCategory = document.getElementById(categoryId);
                 if (activeCategory) {
                     activeCategory.classList.remove('hidden');
+                    
+                    // 清除子分类过滤，显示所有产品卡片
+                    const productCards = activeCategory.querySelectorAll('.product-category > div > div');
+                    productCards.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
                 }
             }
 

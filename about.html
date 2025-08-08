@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 昂石通讯官网</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="my-favicon/favicon.ico" />
+    <!-- 苹果设备支持 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Asmct" />
+    <!-- Web应用清单 -->
+    <link rel="manifest" href="my-favicon/site.webmanifest" />
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CBCB 100%);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            :root {
+                --header-height: 4rem; /* 对应h-16 */
+            }
+            @media (min-width: 768px) {
+                :root {
+                    --header-height: 5rem; /* 对应md:h-20 */
+                }
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-dark antialiased" style="padding-top: var(--header-height);">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/100 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="images/logo.1.png" alt="公司Logo" class="h-6 md:h-7">
+                </a>
+
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-medium text-dark hover:text-primary transition-colors">首页</a>
+                    <a href="about.html" class="font-medium text-primary hover:text-primary transition-colors">关于我们</a>
+                    <div class="relative group">
+                        <a href="product-center.html" class="font-medium text-dark hover:text-primary transition-colors flex items-center">产品中心</a>
+                    </div>
+                    <a href="client-cases.html" class="font-medium text-dark hover:text-primary transition-colors">客户案例</a>
+                    <a href="#services" class="font-medium text-dark hover:text-primary transition-colors">客户服务</a>
+                    <a href="#contact" class="font-medium text-dark hover:text-primary transition-colors">联系我们</a>
+                </nav>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">首页</a>
+                <a href="about.html" class="block font-medium text-primary hover:text-primary transition-colors py-2">关于我们</a>
+                <a href="product-center.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">产品中心</a>
+                <a href="client-cases.html" class="block font-medium text-dark hover:text-primary transition-colors py-2">客户案例</a>
+                <a href="#services" class="block font-medium text-dark hover:text-primary transition-colors py-2">客户服务</a>
+                <a href="#contact" class="block font-medium text-dark hover:text-primary transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 关于我们 -->
+        <section class="py-12">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center">关于我们</h1>
+
+                <div class="prose prose-lg max-w-none">
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-gray-600 mb-4">
+                        
+                        <h2 class="text-2xl font-bold mb-4 text-primary">公司简介</h2>
+                    </blockquote>
+                    <!-- <h2 class="text-2xl font-bold mb-4 text-primary">公司简介</h2> -->
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        昂石通讯技术（北京）有限公司专注于部队通信装备的建设，长期致力于卫星通信、微波通信与雷达领域的科研与生产，是部队天线产品的重点试验单位，
+                        也是国内较早从事军用与民用双体制通信产品的专业性企业。
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        公司紧跟通信领域的新趋势，积极探索新技术，将差异化和定制化作为企业的产品战略。其中通信集成系统、常规通信天线与无人机天线产品已分别形成
+                        了完善的系列化体制；包括伺服转台，跟踪雷达和光电吊舱在内新的产品序列已逐步发展成熟；各类产品在通信、侦查和干扰中广泛使用，涵盖了短波天
+                        线、超短波天线、微波天线、卫星终端、雷达等各种应用领域；应用平台也从无人机，无人车延伸至无人船等各类场景。公司的产品性能和服务保障工作
+                        得到了部队、武警、边防以及反恐维稳等用户的广泛认可。
+                    </p>
+
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        目前，公司正着眼于航空通信领域与跟踪雷达领域的开发，重点关注各类产品在跨平台与技术融合条件下的制式化研究。同时，公司在不断发展中适时的
+                        提出了“突破现有，创新未来”的五年规划，力争为用户提供更多优选产品，以优质的服务和独特的解决方案回报用户的信赖。
+                    </p>
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-gray-600 mb-4">
+                        
+                        <h2 class="text-2xl font-bold mb-4 text-primary">售后服务</h2>
+                    </blockquote>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        1.根据国军标GJB/Z3-88《军工产品售后技术服务》，我公司与用户签订合同时拟定售后服务条款，供双方共同执行；
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        2.产品在保修期内正常使用过程中出现的故障和问题，公司进行免费维修和维护；
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        3.公司将免费为用户提供技术指导及咨询服务；
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        4.产品在保修期外出现的故障和问题公司将提供终身有偿的维修和维护；
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        5.可以根据客户要求有偿提供场地设计建设，计算机仿真，链路计算等服务。
+                    </p>
+
+                    <!-- <h2 class="text-2xl font-bold mb-4 text-primary">公司使命</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed" style="text-indent: 2em;">
+                        提供高品质的通信产品和解决方案，满足客户的多样化需求，推动通信技术的创新与发展。
+                    </p> -->
+
+                    <!-- <h2 class="text-2xl font-bold mb-4 text-primary">核心价值观</h2>
+                    <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-2">
+                        <li>客户至上：以客户为中心，满足客户需求</li>
+                        <li>技术创新：不断创新，引领行业发展</li>
+                        <li>质量第一：注重产品质量，精益求精</li>
+                        <li>诚信经营：诚实守信，合规经营</li>
+                        <li>团队合作：团结协作，共同发展</li>
+                    </ul> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <a href="index.html" class="flex items-center">
+                            <img src="images/logo2.png" alt="公司Logo" class="h-6 md:h-7">
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-tight">
+                        昂石通讯技术（北京）有限公司是一家专注于通信领域的高新技术企业，致力于为客户提供高品质的通信产品和解决方案。
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="product-center.html" class="text-gray-400 hover:text-white transition-colors">产品中心</a></li>
+                        <li><a href="client-cases.html" class="text-gray-400 hover:text-white transition-colors">客户案例</a></li>
+                        <!-- <li><a href="#team" class="text-gray-400 hover:text-white transition-colors">团队</a></li> -->
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">产品中心</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">天线集成系统</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">无人机天线</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">短波/超短波天线</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">雷达产品</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">光电产品</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系方式</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-primary mt-1"></i>
+                            <span class="text-gray-400">北京市大兴区北兴路东段2号院</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-phone text-primary mt-1"></i>
+                            <span class="text-gray-400">(8610)67993545</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-envelope text-primary mt-1"></i>
+                            <span class="text-gray-400">asmct@asmct.com</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-clock-o text-primary mt-1"></i>
+                            <span class="text-gray-400">周一至周五: 8:30 - 17:30</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-3 pt-2 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">版权所有 © 昂石通讯技术（北京）有限公司.   京ICP备10200826号-1  京公网安备11011502006838号</p>
+                <div class="flex gap-6"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('bg-white/100');
+                navbar.classList.add('bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/100');
+                navbar.classList.remove('bg-white');
+            }
+        });
+    </script>
+</body>
+</html>

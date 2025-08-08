@@ -1142,19 +1142,33 @@
             const savedCategory = sessionStorage.getItem('currentCategory');
             const savedSubcategory = sessionStorage.getItem('currentSubcategory');
 
-            // 初始化显示
-            if (savedCategory) {
-                showCategory(savedCategory);
-                currentCategory = savedCategory;
-                if (savedSubcategory) {
-                    filterBySubcategory(savedSubcategory);
-                    currentSubcategory = savedSubcategory;
+            // 检查URL是否有锚点
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                // 如果有有效的锚点，则使用该锚点作为当前分类
+                showCategory(hash);
+                currentCategory = hash;
+                // 保存状态到sessionStorage
+                sessionStorage.setItem('currentCategory', hash);
+                // 展开对应的子菜单
+                const categoryBtn = document.querySelector(`.category-btn[data-category="${hash}"]`);
+                if (categoryBtn) {
+                    const submenu = categoryBtn.nextElementSibling;
+                    if (submenu && submenu.classList.contains('category-submenu')) {
+                        submenu.classList.remove('hidden');
+                        const icon = categoryBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('rotate-180');
+                        }
+                    }
                 }
             } else {
-                // 默认显示第一个分类
+                // 无论是否有保存的分类，都显示第一个分类
                 const firstCategory = categoryBtns[0].dataset.category;
                 showCategory(firstCategory);
                 currentCategory = firstCategory;
+                // 保存状态到sessionStorage
+                sessionStorage.setItem('currentCategory', firstCategory);
                 // 展开第一个分类的子菜单
                 const firstSubmenu = categoryBtns[0].nextElementSibling;
                 if (firstSubmenu && firstSubmenu.classList.contains('category-submenu')) {
@@ -1283,6 +1297,6 @@
         });
     </script>
 </body>
-</html>"${category}"]`);
+</html>
 </body>
 </html>

@@ -1134,6 +1134,42 @@
             const categoryBtns = document.querySelectorAll('.category-btn');
             const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
             const productCategories = document.querySelectorAll('.product-category');
+            const footerLinks = document.querySelectorAll('a[href^="#antenna-systems"], a[href^="#uav-antennas"], a[href^="#hf-uhf-antennas"], a[href^="#radar-products"], a[href^="#Optoelectronic-products"]');
+
+            // 页脚链接点击事件
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showCategory(targetId);
+                    currentCategory = targetId;
+                    currentSubcategory = null;
+                    sessionStorage.setItem('currentCategory', targetId);
+                    sessionStorage.removeItem('currentSubcategory');
+
+                    // 滚动到对应分类
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // 展开对应的子菜单
+                    const categoryBtn = document.querySelector(`.category-btn[data-category="${targetId}"]`);
+                    if (categoryBtn) {
+                        const submenu = categoryBtn.nextElementSibling;
+                        if (submenu && submenu.classList.contains('category-submenu')) {
+                            submenu.classList.remove('hidden');
+                            const icon = categoryBtn.querySelector('i');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                });
+            });
 
             // 初始化状态
             let currentCategory = null;
